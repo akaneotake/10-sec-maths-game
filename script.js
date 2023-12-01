@@ -3,13 +3,12 @@ $(document).ready(function() {
   // Countdown timer
   var time = 10;
   var countdownTimer = function() {
-    if (time > 0) {
-      console.log(time);
+    if (time >= 0) {
+      $('#count').empty();
+      $('#count').append(time);
       time--;
       setTimeout(countdownTimer, 1000);
-    } else {
-      console.log("--END--");
-    }
+    };
   };
 
   // Generate Questions
