@@ -27,6 +27,8 @@ $(document).ready(function() {
   var currentScore = 0;
   $('#currentScore').append(currentScore);
   var highScore = 0;
+  $('#highScore').append(highScore);
+  
   var checkAnswer = function() {
     if ($('#answer').val() == answer) {
       time++;
@@ -47,6 +49,14 @@ $(document).ready(function() {
 
   // Events
   $('#answer').on('click', countdownTimer);
-  $('#answer').on('input', checkAnswer);
+
+  var timeout;
+  $('#answer').on('input', function() {
+    clearTimeout(timeout);
+    timeout = setTimeout( function() {
+      checkAnswer();
+    }, 250);
+  });
+
   generateQuestion();
 });
