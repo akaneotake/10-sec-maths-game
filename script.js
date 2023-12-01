@@ -1,5 +1,16 @@
 $(document).ready(function() {
 
+  // [function] Play again
+  var playAgain = function() {
+    $('#equation').html('');
+    document.getElementById('answer').disabled = true;
+    $('#judgement').html('');
+    $('#tryAgain').toggleClass('hidden');
+    if ($('#currentScore').html() > $('#highScore').html()) {
+      $('#highScore').text(currentScore);
+    };
+  };
+
   // [function] Countdown timer
   var time = 10;
   $('#count').append(time);
@@ -10,6 +21,8 @@ $(document).ready(function() {
       time--;
       setTimeout(countdownTimer, 1000);
       $('#count').append(time);
+    } else {
+        playAgain();
     };
   };
 
@@ -55,7 +68,7 @@ $(document).ready(function() {
     clearTimeout(timeout);
     timeout = setTimeout( function() {
       checkAnswer();
-    }, 250);
+    }, 300);
   });
 
   generateQuestion();
