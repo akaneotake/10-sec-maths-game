@@ -57,22 +57,23 @@ $(document).ready(function() {
   };
 
   // Events
+  // Count start & check the input by keydowns
   var countStart;
-  $('#answer').on('input', function() {
+  var timeout;
+  $('#answer').on('keydown', function() {
+    // countdownTimer()
     if (countStart !== true) {
       countdownTimer();
       countStart = true;
     };
-  });
-
-  var timeout;
-  $('#answer').on('input', function() {
+    // checkAnswer()
     clearTimeout(timeout);
     timeout = setTimeout( function() {
       checkAnswer();
     }, 300);
   });
 
+  // Reset the game by clicking 'Play again' button
   $('#playAgainBtn').on('click', function() {
     time = 10;
     $('#count').html(time);
@@ -87,6 +88,7 @@ $(document).ready(function() {
     countStart = false;
   });
 
+  // Generate question
   generateQuestion();
 
 });
