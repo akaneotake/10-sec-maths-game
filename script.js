@@ -5,24 +5,21 @@ $(document).ready(function() {
     $('#equation').html('');
     document.getElementById('answer').disabled = true;
     $('#judgement').html('');
-    $('#tryAgain').toggleClass('hidden');
-    if ($('#currentScore').html() > $('#highScore').html()) {
-      $('#highScore').text(currentScore);
-    };
+    $('#playAgainBtn').toggleClass('hidden');
   };
 
   // [function] Countdown timer
   var time = 10;
-  $('#count').append(time);
+  $('#count').html(time);
 
   var countdownTimer = function() {
     if (time > 0) {
       $('#count').empty();
       time--;
       setTimeout(countdownTimer, 1000);
-      $('#count').append(time);
+      $('#count').html(time);
     } else {
-        playAgain();
+      playAgain();
     };
   };
 
@@ -33,26 +30,25 @@ $(document).ready(function() {
     var num1 = Math.floor(Math.random() * 10);
     var num2 = Math.floor(Math.random() * 10);
     answer = num1 + num2;
-    $('#equation').append(num1 + "+" + num2);
+    $('#equation').html(num1 + "+" + num2);
   };
 
   // [function] Check Answer
   var currentScore = 0;
-  $('#currentScore').append(currentScore);
+  $('#currentScore').html(currentScore);
   var highScore = 0;
-  $('#highScore').append(highScore);
+  $('#highScore').html(highScore);
   
   var checkAnswer = function() {
     if ($('#answer').val() == answer) {
       time++;
-      $('#equation').text('');
+      $('#equation').html('');
       $('#answer').val('');
       $('#judgement').html('correct');
       $('#judgement').css('color', 'green');
       generateQuestion();
       currentScore++;
-      $('#currentScore').empty();
-      $('#currentScore').append(currentScore);
+      $('#currentScore').html(currentScore);
     } else {
       $('#answer').val('');
       $('#judgement').html('wrong answer!');
@@ -61,7 +57,7 @@ $(document).ready(function() {
   };
 
   // Events
-  $('#answer').on('click', countdownTimer);
+  $('#answer').on('focus', countdownTimer);
 
   var timeout;
   $('#answer').on('input', function() {
@@ -71,5 +67,19 @@ $(document).ready(function() {
     }, 300);
   });
 
+  $('#playAgainBtn').on('click', function() {
+    time = 10;
+    $('#count').html(time);
+    if ($('#currentScore').html() > $('#highScore').html()) {
+      $('#highScore').html(currentScore);
+    };
+    currentScore = 0;
+    $('#currentScore').html(currentScore);
+    generateQuestion();
+    document.getElementById('answer').disabled = false;
+    $('#playAgainBtn').toggleClass('hidden');
+  });
+
   generateQuestion();
+
 });
