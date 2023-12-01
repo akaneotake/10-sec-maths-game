@@ -25,6 +25,9 @@ $(document).ready(function() {
   };
 
   // [function] Check Answer
+  var currentScore = 0;
+  $('#currentScore').append(currentScore);
+  var highScore = 0;
   var checkAnswer = function() {
     if ($('#answer').val() == answer) {
       time++;
@@ -32,6 +35,9 @@ $(document).ready(function() {
       $('#equation').text('');
       $('#answer').val('');
       generateQuestion();
+      currentScore++;
+      $('#currentScore').empty();
+      $('#currentScore').append(currentScore);
     };
   };
 
