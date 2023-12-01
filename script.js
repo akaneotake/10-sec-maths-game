@@ -57,7 +57,13 @@ $(document).ready(function() {
   };
 
   // Events
-  $('#answer').on('focus', countdownTimer);
+  var countStart;
+  $('#answer').on('input', function() {
+    if (countStart !== true) {
+      countdownTimer();
+      countStart = true;
+    };
+  });
 
   var timeout;
   $('#answer').on('input', function() {
@@ -78,6 +84,7 @@ $(document).ready(function() {
     generateQuestion();
     document.getElementById('answer').disabled = false;
     $('#playAgainBtn').toggleClass('hidden');
+    countStart = false;
   });
 
   generateQuestion();
