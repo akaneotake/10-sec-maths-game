@@ -8,7 +8,6 @@ $(document).ready(function() {
     if (time > 0) {
       $('#count').empty();
       time--;
-      console.log(time);
       setTimeout(countdownTimer, 1000);
       $('#count').append(time);
     };
@@ -31,13 +30,18 @@ $(document).ready(function() {
   var checkAnswer = function() {
     if ($('#answer').val() == answer) {
       time++;
-      console.log("correct");
       $('#equation').text('');
       $('#answer').val('');
+      $('#judgement').html('correct');
+      $('#judgement').css('color', 'green');
       generateQuestion();
       currentScore++;
       $('#currentScore').empty();
       $('#currentScore').append(currentScore);
+    } else {
+      $('#answer').val('');
+      $('#judgement').html('wrong answer!');
+      $('#judgement').css('color', 'red');
     };
   };
 
