@@ -48,16 +48,22 @@ $(document).ready(function() {
     var num1 = Math.floor(Math.random() * 10);
     var num2 = Math.floor(Math.random() * 10);
     var operator = decideOperator();
+    var printAnswer = $('#equation').html(num1 + operator + num2);
     if (operator == '+') {
       answer = num1 + num2;
-    } else if (operator == '-') {
+      printAnswer;
+    } else if (operator == '-' && (num1 - num2) > 0) {
       answer = num1 - num2;
+      printAnswer;
     } else if (operator == 'x') {
       answer = num1 * num2;
-    } else if (operator == '÷') {
+      printAnswer;
+    } else if (operator == '÷' && Number.isInteger(num1 / num2)) {
       answer = num1 / num2;
+      printAnswer;
+    } else {
+      generateQuestion();
     };
-    $('#equation').html(num1 + operator + num2);
   };
 
   // [function] Check Answer
