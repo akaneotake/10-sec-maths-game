@@ -78,11 +78,8 @@ $(document).ready(function() {
     } else if ((operator == '-' && (num1 - num2) < 0) || (operator == '÷' && !Number.isInteger(num1 / num2))) {
       generateQuestion();
       // No arithmetic operator is checked 
-    } else if (operator == undefined) {
-      alert('Please check at least one of the arithmetic operators!\n(+) or (-) or (x) or (÷)');
     } else {
-      console.log('something went wrong');
-      console.log(answer);
+      console.log('something went wrong');   
     };
   };
 
