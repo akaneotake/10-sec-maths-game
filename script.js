@@ -23,14 +23,41 @@ $(document).ready(function() {
     };
   };
 
+  // [function] Detect the checked arithmetic operators (Push them to the 'operators' array)
+  var operators = ['+'];
+  var checkedOperators = function() {
+    operators = [];
+    var checkbox = document.getElementsByClassName('checkbox');
+    for (var i = 0; i < checkbox.length; i++) {
+      if (checkbox[i].checked) {
+        operators.push(checkbox[i].value);
+      };
+    };
+  };
+  
+  // [function] Pick one arithmetic operator for the question 
+  var decideOperator = function() {
+    var index = Math.floor(Math.random() * operators.length);
+    return operators[index];
+  };
+
   // [function] Generate Question
   var answer = 0;
   var generateQuestion = function() {
     // 0~9
     var num1 = Math.floor(Math.random() * 10);
     var num2 = Math.floor(Math.random() * 10);
-    answer = num1 + num2;
-    $('#equation').html(num1 + "+" + num2);
+    var operator = decideOperator();
+    if (operator == '+') {
+      answer = num1 + num2;
+    } else if (operator == '-') {
+      answer = num1 - num2;
+    } else if (operator == 'x') {
+      answer = num1 * num2;
+    } else if (operator == '÷') {
+      answer = num1 / num2;
+    };
+    $('#equation').html(num1 + operator + num2);
   };
 
   // [function] Check Answer
@@ -56,6 +83,8 @@ $(document).ready(function() {
     };
   };
 
+  // 計算式の桁数増やす？
+
   // Events
   // Count start & check the input by keydowns
   var countStart;
@@ -73,6 +102,9 @@ $(document).ready(function() {
     }, 300);
   });
 
+  // Detect which arithmetic operators are checked
+  $('.checkbox').on('change', checkedOperators);
+  
   // Reset the game by clicking 'Play again' button
   $('#playAgainBtn').on('click', function() {
     time = 10;

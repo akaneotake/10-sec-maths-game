@@ -20,9 +20,15 @@
   <h1>10 Sec Maths Game</h1>
   <div><span id="count"></span>second left</div>
   <div id="equation"></div>
-  <input type="number" id="answer" placeholder="Your Answer" />
+  <input type="number" id="answer" name="answer" placeholder="Your Answer" />
   <div id="judgement"></div>
   <button id="playAgainBtn" class="hidden">Play again</button>
+  <div>
+    <label><input type="checkbox" class="checkbox" name="operator" value="+" checked/>+</label>
+    <label><input type="checkbox" class="checkbox" name="operator" value="-" />-</label>
+    <label><input type="checkbox" class="checkbox" name="operator" value="x" />x</label>
+    <label><input type="checkbox" class="checkbox" name="operator" value="÷" />÷</label>
+  </div>
   <div>Current Score: <span id="currentScore"></span></div>
   <div>High Score: <span id="highScore"></span></div>
 </body>
