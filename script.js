@@ -41,18 +41,31 @@ $(document).ready(function() {
     return operators[index];
   };
 
+  // [function] Check max number and decide the numbers 
+  var num1 = 0;
+  var num2 = 0;
+  var decideNumbers = function() {
+    var limit = Number($('#limitRange').val());
+    if (limit == 10) {
+      num1 = Math.floor(Math.random() * 10);
+      num2 = Math.floor(Math.random() * 10);
+    } else {
+      num1 = Math.floor(Math.random() * (limit + 1));
+      num2 = Math.floor(Math.random() * (limit + 1));
+    };
+  };
+
   // [function] Generate Question
   var answer = 0;
   var generateQuestion = function() {
-    // 0~9
-    var num1 = Math.floor(Math.random() * 10);
-    var num2 = Math.floor(Math.random() * 10);
+    decideNumbers();
+    checkedOperators();
     var operator = decideOperator();
     var printAnswer = $('#equation').html(num1 + operator + num2);
     if (operator == '+') {
       answer = num1 + num2;
       printAnswer;
-    } else if (operator == '-' && (num1 - num2) > 0) {
+    } else if (operator == '-' && (num1 - num2) >= 0) {
       answer = num1 - num2;
       printAnswer;
     } else if (operator == 'x') {
@@ -61,8 +74,15 @@ $(document).ready(function() {
     } else if (operator == '÷' && Number.isInteger(num1 / num2)) {
       answer = num1 / num2;
       printAnswer;
-    } else {
+      // 答えがマイナス（引き算）か小数（割り算）の時
+    } else if ((operator == '-' && (num1 - num2) < 0) || (operator == '÷' && !Number.isInteger(num1 / num2))) {
       generateQuestion();
+      // No arithmetic operator is checked 
+    } else if (operator == undefined) {
+      alert('Please check at least one of the arithmetic operators!\n(+) or (-) or (x) or (÷)');
+    } else {
+      console.log('something went wrong');
+      console.log(answer);
     };
   };
 
@@ -109,8 +129,13 @@ $(document).ready(function() {
   });
 
   // Detect which arithmetic operators are checked
-  $('.checkbox').on('change', checkedOperators);
-  
+  $('.checkbox').on('change', function() {
+    checkedOperators();
+    if (operators.length === 0) {
+      alert('Please check at least one of the arithmetic operators!\n(+) or (-) or (x) or (÷)');
+    }
+  });
+
   // Change the number limit
   $('#limitRange').on('change', function() {
     $('#limit').html($('#limitRange').val());
@@ -120,7 +145,7 @@ $(document).ready(function() {
   $('#playAgainBtn').on('click', function() {
     time = 10;
     $('#count').html(time);
-    if ($('#currentScore').html() > $('#highScore').html()) {
+    if (Number($('#currentScore').html()) > Number($('#highScore').html())) {
       $('#highScore').html(currentScore);
     };
     currentScore = 0;
