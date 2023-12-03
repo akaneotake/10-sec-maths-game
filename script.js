@@ -111,6 +111,11 @@ $(document).ready(function() {
   // Detect which arithmetic operators are checked
   $('.checkbox').on('change', checkedOperators);
   
+  // Change the number limit
+  $('#limitRange').on('change', function() {
+    $('#limit').html($('#limitRange').val());
+  });
+  
   // Reset the game by clicking 'Play again' button
   $('#playAgainBtn').on('click', function() {
     time = 10;
