@@ -8,6 +8,17 @@ $(document).ready(function() {
     $('#playAgainBtn').toggleClass('hidden');
   };
 
+  // [function] Change the color of countdown timer 
+  var changeTimerColor = function() {
+    if (time > 7) {
+      $('#count').css('color', 'white');
+    } else if (time < 7 && time > 4) {
+      $('#count').css('color', 'yellow');
+    } else if (time < 4) {
+      $('#count').css('color', 'red');
+    }
+  };
+
   // [function] Countdown timer
   var time = 10;
   $('#count').html(time);
@@ -16,7 +27,8 @@ $(document).ready(function() {
     if (time > 0) {
       time--;
       $('#count').html(time);
-      setTimeout(countdownTimer, 1000);  
+      setTimeout(countdownTimer, 1000);
+      changeTimerColor();
     } else {
       showPlayAgainBtn();
     };
@@ -138,7 +150,7 @@ $(document).ready(function() {
   // Reset the game by clicking 'Play again' button
   $('#playAgainBtn').on('click', function() {
     time = 10;
-    $('#count').html(time);
+    $('#count').html(time).css('color', 'white');
     $('#answer').val('');
     if (Number($('#currentScore').html()) > Number($('#highScore').html())) {
       $('#highScore').html(currentScore);
