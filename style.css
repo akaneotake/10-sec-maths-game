@@ -1,3 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200&display=swap');
+
+body {
+  font-family: 'Changa', sans-serif;
+  text-align: center;
+  background-color: black;
+  color: white;
+  font-size: 150%;
+  margin-bottom: 30px;
+}
+
+h1 {
+  color: lime;
+  text-shadow: 2px 2px 0 white;
+  line-height: 80%;
+}
+
+p {
+  line-height: 10%;
+}
+
+#count {
+  font-size: 200%;
+}
+
+#equation {
+  margin-top: 20px;
+  font-size: 300%;
+  line-height: 100%; 
+}
+
+#answer {
+  font-size: 100%;
+} 
+#judgement {
+ font-weight: 700;
+}
+
+#playAgainBtn {
+  font-size: 20px;
+  padding: 10px 30px;
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 5px;
+  box-shadow: 3px 3px 2px lime; 
+}
+
+#playAgainBtn:active {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+#setting {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 30%;
+  margin-right: 30%;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.checkbox {
+  accent-color: lime;
+}
+
+#limitRange {
+  accent-color: lime;
+}
+
 .hidden {
   display: none;
 }

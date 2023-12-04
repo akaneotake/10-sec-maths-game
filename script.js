@@ -94,7 +94,7 @@ $(document).ready(function() {
       $('#equation').html('');
       $('#answer').val('');
       $('#judgement').html('correct');
-      $('#judgement').css('color', 'green');
+      $('#judgement').css('color', 'lime');
       generateQuestion();
       currentScore++;
       $('#currentScore').html(currentScore);
@@ -104,8 +104,6 @@ $(document).ready(function() {
       $('#judgement').css('color', 'red');
     };
   };
-
-  // 計算式の桁数増やす？
 
   // Events
   // Count start & check the input by keydowns

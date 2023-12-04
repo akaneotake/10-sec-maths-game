@@ -16,24 +16,30 @@
   <script src="https://kit.fontawesome.com/fe1102712b.js" crossorigin="anonymous"></script>
   <title>10 Sec Maths Game</title>
 </head>
+
 <body>
   <h1>10 Sec Maths Game</h1>
+  <!--
   <p>Try to solve the math equations as much as you can in 10 seconds!</p>
   <p>If you make a correct guess, an additional 1 sec is added to the available time.</p>
-  <div><span id="count"></span>second left</div>
+  -->
+  <p id="count"></p>
+  <p>second left</p>
   <div id="equation"></div>
   <input type="number" id="answer" name="answer" placeholder="Your Answer" />
-  <div id="judgement"></div>
+  <p id="judgement"></p>
   <button id="playAgainBtn" class="hidden">Play again</button>
-  <div>
-    <label><input type="checkbox" class="checkbox" name="operator" value="+" checked/>+</label>
-    <label><input type="checkbox" class="checkbox" name="operator" value="-" />-</label>
-    <label><input type="checkbox" class="checkbox" name="operator" value="x" />x</label>
-    <label><input type="checkbox" class="checkbox" name="operator" value="÷" />÷</label>
-  </div>
-  <div>
-    <p>Max Number: </p>
-    <label><input id="limitRange" type="range" value="10" min="10" max="50" step="5" /><span id="limit">10</span></label>
+  <div id="setting">
+    <div>
+      <label><input type="checkbox" class="checkbox" name="operator" value="+" checked/>+</label>
+      <label><input type="checkbox" class="checkbox" name="operator" value="-" />-</label>
+      <label><input type="checkbox" class="checkbox" name="operator" value="x" />x</label>
+      <label><input type="checkbox" class="checkbox" name="operator" value="÷" />÷</label>
+    </div>
+    <div>
+      <p>Max Number: </p>
+      <label><input id="limitRange" type="range" value="10" min="10" max="50" step="5" /><span id="limit">10</span></label>
+    </div>
   </div>
   <div>Current Score: <span id="currentScore"></span></div>
   <div>High Score: <span id="highScore"></span></div>
