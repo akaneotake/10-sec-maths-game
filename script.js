@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   // [function] Play again
-  var playAgain = function() {
+  var showPlayAgainBtn = function() {
     $('#equation').html('');
     document.getElementById('answer').disabled = true;
     $('#judgement').html('');
@@ -19,7 +19,7 @@ $(document).ready(function() {
       setTimeout(countdownTimer, 1000);
       $('#count').html(time);
     } else {
-      playAgain();
+      showPlayAgainBtn();
     };
   };
 
@@ -112,7 +112,7 @@ $(document).ready(function() {
   // Count start & check the input by keydowns
   var countStart;
   var timeout;
-  $('#answer').on('keydown', function() {
+  $('#answer').on('keyup', function() {
     // countdownTimer()
     if (countStart !== true) {
       countdownTimer();
@@ -122,7 +122,7 @@ $(document).ready(function() {
     clearTimeout(timeout);
     timeout = setTimeout( function() {
       checkAnswer();
-    }, 300);
+    }, 250);
   });
 
   // Detect which arithmetic operators are checked
@@ -142,6 +142,7 @@ $(document).ready(function() {
   $('#playAgainBtn').on('click', function() {
     time = 10;
     $('#count').html(time);
+    $('#answer').val('');
     if (Number($('#currentScore').html()) > Number($('#highScore').html())) {
       $('#highScore').html(currentScore);
     };
