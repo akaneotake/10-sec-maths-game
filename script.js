@@ -14,10 +14,9 @@ $(document).ready(function() {
 
   var countdownTimer = function() {
     if (time > 0) {
-      $('#count').empty();
       time--;
-      setTimeout(countdownTimer, 1000);
       $('#count').html(time);
+      setTimeout(countdownTimer, 1000);  
     } else {
       showPlayAgainBtn();
     };
