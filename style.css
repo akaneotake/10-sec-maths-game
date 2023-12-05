@@ -1,57 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Changa:wght@200&display=swap');
 
-#images {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-#talk1 {
-  animation: talkFromRght 3s;
-}
-
-@keyframes talkFromRght {
-  from {
-    transform: translateX(200px);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-#hero {
-  width: 150px;
-  height: 200px;
-  animation: heroFromLeft 5s;
-}
-
-@keyframes heroFromLeft {
-  0% {
-    transform : translateX(-1000px) rotateY(180deg);
-  }
-  70% {
-    transform: rotateY(180deg);  
-  }
-  80% {
-    transform: translateX(0) rotateY(0);
-  }
-  85%{
-    transform: translateY(10px);
-  }
-  90% {
-    transform: translateY(0);
-  }
-  95% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-
-
-
 body {
   font-family: 'Changa', sans-serif;
   text-align: center;
@@ -122,4 +70,75 @@ p {
 
 .hidden {
   display: none;
+}
+
+/* For intro animation */
+#images {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.disapear {
+  display: none;
+}
+
+#scrollDown {
+  margin-top: 50px;
+  color: red;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+#talk {
+  animation: talkFromRght 5s;
+}
+
+@keyframes talkFromRght {
+  0% {
+    transform: translateX(200px);
+  }
+  40% {
+    transform: translateX(0);
+  }
+  85% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+
+#hero {
+  width: 150px;
+  height: 200px;
+  animation: heroFromLeft 4s;
+}
+
+@keyframes heroFromLeft {
+  0% {
+    transform : translateX(-1000px) rotateY(180deg);
+  }
+  70% {
+    transform: rotateY(180deg);  
+  }
+  80% {
+    transform: translateX(0) rotateY(0);
+  }
+  85% {
+    transform: translateY(10px);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  95% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

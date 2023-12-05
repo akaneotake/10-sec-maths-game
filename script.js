@@ -85,7 +85,7 @@ $(document).ready(function() {
     } else if (operator == '÷' && Number.isInteger(num1 / num2)) {
       answer = num1 / num2;
       printAnswer;
-      // 答えがマイナス（引き算）か小数（割り算）の時
+      // if answer is minus or decimal
     } else if ((operator == '-' && (num1 - num2) < 0) || (operator == '÷' && !Number.isInteger(num1 / num2))) {
       generateQuestion();
       // No arithmetic operator is checked 
@@ -166,4 +166,19 @@ $(document).ready(function() {
   // Generate question
   generateQuestion();
 
+  // For the intro animation
+  var timePast = 0;
+  setTimeout(function() {
+    $('#talk').attr('src', 'image/talk2.png');
+    timePast = 5;
+    $('#scrollDown').toggleClass('disapear');
+  }, 5000);
+
+  $(window).scroll(function() {
+    if (timePast == 5) {
+      $('img').toggleClass('disapear');
+      $('#scrollDown').toggleClass('disapear');
+    }
+    timePast = 0;
+  })
 });
