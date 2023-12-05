@@ -79,10 +79,6 @@ p {
   align-items: flex-end;
 }
 
-.disapear {
-  display: none;
-}
-
 #scrollDown {
   margin-top: 50px;
   color: red;
@@ -99,18 +95,10 @@ p {
 }
 
 @keyframes talkFromRght {
-  0% {
-    transform: translateX(200px);
-  }
-  40% {
-    transform: translateX(0);
-  }
-  85% {
-    transform: rotateX(0);
-  }
-  100% {
-    transform: rotateX(360deg);
-  }
+  0% {transform: translateX(200px);}
+  40% {transform: translateX(0);}
+  80% {transform: rotateX(0);}
+  100% {transform: rotateX(360deg);}
 }
 
 #hero {
@@ -120,25 +108,11 @@ p {
 }
 
 @keyframes heroFromLeft {
-  0% {
-    transform : translateX(-1000px) rotateY(180deg);
-  }
-  70% {
-    transform: rotateY(180deg);  
-  }
-  80% {
-    transform: translateX(0) rotateY(0);
-  }
-  85% {
-    transform: translateY(10px);
-  }
-  90% {
-    transform: translateY(0);
-  }
-  95% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+  0% {transform : translateX(-1000px) rotateY(180deg);}
+  70% {transform: rotateY(180deg);}
+  80% {transform: translateX(0) rotateY(0);}
+  85% {transform: translateY(10px);}
+  90% {transform: translateY(0);}
+  95% {transform: translateY(10px);}
+  100% {transform: translateY(0);}
 }

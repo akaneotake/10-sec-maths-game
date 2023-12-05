@@ -171,13 +171,13 @@ $(document).ready(function() {
   setTimeout(function() {
     $('#talk').attr('src', 'image/talk2.png');
     timePast = 5;
-    $('#scrollDown').toggleClass('disapear');
-  }, 5000);
+    $('#scrollDown').removeClass('hidden');
+  }, 4500);
 
   $(window).scroll(function() {
     if (timePast == 5) {
-      $('img').toggleClass('disapear');
-      $('#scrollDown').toggleClass('disapear');
+      $('img').addClass('hidden');
+      $('#scrollDown').addClass('hidden');
     }
     timePast = 0;
   })
