@@ -1,5 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Changa:wght@200&display=swap');
 
+#images {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#talk1 {
+  animation: talkFromRght 3s;
+}
+
+#hero {
+  width: 150px;
+  height: 200px;
+  animation: heroFromLeft 3s;
+}
+
+@keyframes talkFromRght {
+  from {
+    transform: translateX(200px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroFromLeft {
+  0% {
+    transform : translateX(-1000px) rotateY(180deg);
+  }
+  95% {
+    transform: rotateY(180deg);  
+  }
+  100% {
+    transform: translateX(0) rotateY(0);
+  }
+}
+
+
+
+
 body {
   font-family: 'Changa', sans-serif;
   text-align: center;
