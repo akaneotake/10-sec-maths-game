@@ -10,12 +10,6 @@
   animation: talkFromRght 3s;
 }
 
-#hero {
-  width: 150px;
-  height: 200px;
-  animation: heroFromLeft 3s;
-}
-
 @keyframes talkFromRght {
   from {
     transform: translateX(200px);
@@ -25,15 +19,33 @@
   }
 }
 
+#hero {
+  width: 150px;
+  height: 200px;
+  animation: heroFromLeft 5s;
+}
+
 @keyframes heroFromLeft {
   0% {
     transform : translateX(-1000px) rotateY(180deg);
   }
-  95% {
+  70% {
     transform: rotateY(180deg);  
   }
-  100% {
+  80% {
     transform: translateX(0) rotateY(0);
+  }
+  85%{
+    transform: translateY(10px);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  95% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
